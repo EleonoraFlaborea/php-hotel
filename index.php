@@ -55,30 +55,31 @@ $hotels = [
 </head>
 <body>
 
-<section class="container pt-5">
-    <h1>HOTEL LIST</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">name</th>
+      <th scope="col">description</th>
+      <th scope="col">parking</th>
+      <th scope="col">vote</th>
+      <th scope="col">distance_to_center</th>
+    </tr>
+  </thead>
 
-<?php
+  <tbody>
+    <?php foreach ($hotels as $hotel): ?>
+      <tr>
+        <th scope="col"><?php echo $hotel['name'] ?></th>
+        <td><?php echo $hotel['description'] ?></td>
+        <td><?php echo $hotel['parking'] ? 'yes' : 'no' ?></td>
+        <td><?php echo $hotel['vote'] ?></td>
+        <td><?php echo$hotel['distance_to_center'] ?></td>
 
-$htmlTable = '<table border="1">';
-foreach ($hotels as $row) {
-    $htmlTable .= '<tr>';
-    foreach ($row as $cell) {
-        $htmlTable .= '<td>' . $cell . '</td>';
-    }
-    $htmlTable .= '</tr>';
-}
-$htmlTable .= '</table>';
-
-echo $htmlTable;
-?>
-
-</section>
-
-<section>
+      </tr>
+    <?php endforeach ?>
   
-</section>
-
+  </tbody>
+</table>
     
 </body>
 </html>
